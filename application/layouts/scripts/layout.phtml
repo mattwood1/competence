@@ -9,11 +9,9 @@
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
         <?php echo $this->headLink()
-                ->appendStylesheet('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
-                ->appendStylesheet('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
-                ->appendStylesheet('//netdna.bootstrapcdn.com/bootswatch/3.1.1/simplex/bootstrap.min.css')
-                ->appendStylesheet($this->baseUrl().'/css/site.css'); ?>
-        <!-- Designed Fro BlackBerry 320px width - 8px scrollbar -->
+                ->appendStylesheet('//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+                ->appendStylesheet('//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+                ->appendStylesheet('//netdna.bootstrapcdn.com/bootswatch/3.3.1/simplex/bootstrap.min.css'); ?>
         <meta name="viewport" content="width=312; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
     </head>
     <body>
@@ -26,7 +24,7 @@
             </footer>
         </div>
         <?php echo $this->headScript()
-                ->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-                ->appendFile('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'); ?>
+                ->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+                ->appendFile('//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'); ?>
     </body>
 </html>
