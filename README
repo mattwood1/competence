@@ -1,1 +1,35 @@
-README File
+===============================
+==  Skeleton Zend Framework  ==
+===============================
+
+Modifications to the base Zend Framework
+========================================
+ - Doctrine
+ - Twitter Bootstrap Form Decorator
+ - DbPatch
+
+
+
+Doctrine
+========
+
+As opposed to the Zend Framework DB
+References: http://docs.doctrine-project.org/projects/doctrine1/en/latest/en/manual/index.html
+
+
+
+Twitter Bootstrap Form Decorator
+================================
+
+Usage: TODO
+References: https://github.com/Emagister/zend-form-decorators-bootstrap/tree/bootstrap3
+
+
+
+DbPatch
+=======
+
+Patch files live in /var/dbpatch named patch-000.sql
+Running DbPatch in /application/scripts/dbpatch
+
+

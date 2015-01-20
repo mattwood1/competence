@@ -6,7 +6,6 @@
  * @package Twitter
  * @subpackage Bootstrap
  * @author Christian Soronellas <csoronellas@emagister.com>
- * @site https://github.com/Emagister/zend-form-decorators-bootstrap/tree/bootstrap3
  */
 
 /**
