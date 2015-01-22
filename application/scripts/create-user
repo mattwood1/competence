@@ -1,0 +1,48 @@
+#!/usr/bin/php -qd register_argc_argv=on
+<?php
+
+// cli initialisation
+require(dirname(__FILE__) . '/../init.php');
+
+try {
+
+    $opts = new Zend_Console_Getopt(
+        array(
+            'firstname|f=s' => 'First name for new user account',
+            'surname|s=s'   => 'Surname for new user account',
+            'email|e=s'     => 'Email address for new user account',
+            'password|p=s'  => 'Initial password for new user account',
+            'role|r-i'      => 'Intial role ID for new user account'
+        )
+    );
+
+    if ($opts->firstname && $opts->surname && $opts->email && $opts->password) {
+        
+        $user = new App_Model_User();
+
+        $user->firstname     = $opts->firstname;
+        $user->surname       = $opts->surname;
+        $user->email_address = $opts->email;
+
+        $user->changePassword($opts->password);
+        
+        if ($opts->role && ($role = App_Model_RoleTable::getInstance()->find($opts->role))) {
+        
+            $user->roles[] = $role;
+        }
+
+        $user->save();
+       
+        print "Created user with id #{$user->id}.\n";
+    }
+    else {
+    
+        print $opts->getUsageMessage();
+    }
+}
+catch (Zend_Console_Getopt_Exception $e) {
+
+    print $e->getUsageMessage();
+}
+/*
+*/
