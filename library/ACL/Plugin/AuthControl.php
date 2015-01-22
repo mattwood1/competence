@@ -6,7 +6,7 @@ class ACL_Plugin_AuthControl extends Zend_Controller_Plugin_Abstract
 
     public function __construct()
     {
-        $this->_auth     = PDF_Model_Authentication::getInstance();
+        $this->_auth     = ACL_Model_Authentication::getInstance();
         $this->_redirect = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
     }
 

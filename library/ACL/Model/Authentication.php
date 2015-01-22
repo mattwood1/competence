@@ -7,7 +7,7 @@
  *
  * @author Dan Haworth <dan@xigen.co.uk>
  */
-class PDF_Model_Authentication
+class ACL_Model_Authentication
 {
     const LOGIN_SUCCESS_PASSCHANGE  =  1;
     const LOGIN_SUCCESS             =  0;
@@ -33,9 +33,9 @@ class PDF_Model_Authentication
     {
         // Get working instances of Zend_Auth and an Auth_Adapter
         $connection     = Doctrine_Core::getConnectionByTableName('PDF_Model_User');
-        $this->_acl     = new PDF_Model_Acl;
+        $this->_acl     = new ACL_Model_Acl;
         $this->_auth    = Zend_Auth::getInstance();
-        $this->_adapter = new Xigen_Auth_Adapter_Doctrine_Table($connection);
+        $this->_adapter = new ACL_Model_Table($connection);
 
         $this->_adapter
             ->setTableName('PDF_Model_User')
