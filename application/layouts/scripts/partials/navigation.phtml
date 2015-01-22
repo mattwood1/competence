@@ -20,16 +20,16 @@
                 <li><a href="<?php echo $this->url(array('controller' => 'web-resource', 'action' => 'index'), null, true); ?>"><i class="fa fa-chain fa-fw"></i> Web Resources</a></li>
                 <?php endif; ?>
             </ul>
-            
+
             <!-- Right Links -->
             <ul class="nav navbar-nav navbar-right">
                 <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'),null ,true); ?>"><i class="fa fa-sign-out fa-fw"></i> Log out</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'),null ,true); ?>">Log out <i class="fa fa-sign-out fa-fw"></i></a></li>
                 <?php else: ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'),null ,true); ?>"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'),null ,true); ?>">Log in <i class="fa fa-sign-in fa-fw"></i></a></li>
                 <?php endif;?>
             </ul>
-            
+
             <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
             <!-- Search -->
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -43,7 +43,7 @@
                 </form>
             </div>
             <?php endif; ?>
-            
+
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </div>
