@@ -63,8 +63,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
                     and !$element instanceof Zend_Form_Element_Radio)
             {
                 $this->_addClassNames(array(
-                    'form-control',
-                    'col-'.$this->_getColType().'-'.$this->_getFieldColSize()
+                    'form-control'
                 ), $element);
             }
         }
@@ -191,7 +190,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
              * https://github.com/manticorp
              */
             if ($eachElement->isRequired()) {
-                $eachElement->setAttrib('required', '');
+              //  $eachElement->setAttrib('required', '');
             }
 
             /**
