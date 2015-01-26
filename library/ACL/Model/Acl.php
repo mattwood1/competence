@@ -14,40 +14,40 @@ class ACL_Model_Acl extends Zend_Acl
 
         // anyone who's not logged into the system
         'unauthenticated' => array(
-	        		'modules' => array(
-	        			'default' => array(
-				            'controllers' => array(
-				                'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
-				                'error' => array('*')
-				            )
-						),
-        			),
-					'allow' => array('guest')
-		),
+            'modules' => array(
+                    'default' => array(
+                        'controllers' => array(
+                            'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
+                            'error' => array('*')
+                        )
+                            ),
+            ),
+            'allow' => array('guest')
+        ),
 
         // base standard user allowances
         'base_user' => array(
-        	'modules' => array(
-		        		'default' => array(
-					            'controllers' => array(
-					            	'index' => array('*'),
-					            )
-							)
-						),
-	          'allow' => array('user')
+            'modules' => array(
+                'default' => array(
+                    'controllers' => array(
+                        'index' => array('*'),
+                    )
+                )
+            ),
+            'allow' => array('user')
         ),
 
         'admin' => array(
-        		'modules' => array(
-						'generator' => array(
-                			'controllers' => array(
-	                        	'index' => array('*')
-              				)
-						)
-            	),
-				'allow' => array('admin'),
-			)
-		);
+            'modules' => array(
+                'generator' => array(
+                    'controllers' => array(
+                        'index' => array('*')
+                    )
+                )
+            ),
+            'allow' => array('admin'),
+        )
+    );
 
     public function __construct()
     {

@@ -12,31 +12,24 @@ try {
             'surname|s=s'   => 'Surname for new user account',
             'email|e=s'     => 'Email address for new user account',
             'password|p=s'  => 'Initial password for new user account',
-            'role|r-i'      => 'Intial role ID for new user account'
+            'role|r-s'      => 'Intial role ID for new user account'
         )
     );
 
-    if ($opts->firstname && $opts->surname && $opts->email && $opts->password) {
+    if ($opts->firstname && $opts->surname && $opts->email && $opts->password && $opts->role) {
         
         $user = new App_Model_User();
 
         $user->firstname     = $opts->firstname;
         $user->surname       = $opts->surname;
         $user->email_address = $opts->email;
-
-        $user->changePassword($opts->password);
-        
-        if ($opts->role && ($role = App_Model_RoleTable::getInstance()->find($opts->role))) {
-        
-            $user->roles[] = $role;
-        }
+        $user->password      = md5($opts->password);
+        $user->role          = $opts->role;
 
         $user->save();
        
         print "Created user with id #{$user->id}.\n";
-    }
-    else {
-    
+    } else {
         print $opts->getUsageMessage();
     }
 }
@@ -44,5 +37,3 @@ catch (Zend_Console_Getopt_Exception $e) {
 
     print $e->getUsageMessage();
 }
-/*
-*/

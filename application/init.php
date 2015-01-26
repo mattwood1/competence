@@ -7,7 +7,7 @@ if (!defined('APPLICATION_ENV')) {
     if (getenv('APPLICATION_ENV')) {
         define('APPLICATION_ENV', getenv('APPLICATION_ENV'));
     } else {
-        define('APPLICATION_ENV', "development");
+        define('APPLICATION_ENV', "developmentcli");
     }
 }
 
