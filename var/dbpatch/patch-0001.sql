@@ -7,6 +7,7 @@ CREATE TABLE `users` (
     `surname` varchar(50) NOT NULL DEFAULT '',
     `email_address` varchar(255) NOT NULL DEFAULT '',
     `password` char(128) NOT NULL DEFAULT '',
+    `role` char(50) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`),
     KEY `email_address` (`email_address`)
 ) DEFAULT CHARSET=utf8;
