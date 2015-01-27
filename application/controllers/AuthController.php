@@ -14,7 +14,7 @@ class AuthController extends Zend_Controller_Action
         
         if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
             // process authentication
-            $this->_performLogin($form);
+            $this->_performLogin($this->_request->getPost());
             
 //            $auth->logIn($form->username, $form->password);
         }
