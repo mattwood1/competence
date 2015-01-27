@@ -32,14 +32,14 @@ class ACL_Model_Authentication
     protected function __construct()
     {
         // Get working instances of Zend_Auth and an Auth_Adapter
-        $connection     = Doctrine_Core::getConnectionByTableName('PDF_Model_User');
+        $connection     = Doctrine_Core::getConnectionByTableName('App_Model_User');
         $this->_acl     = new ACL_Model_Acl;
         $this->_auth    = Zend_Auth::getInstance();
         $this->_adapter = new ACL_Model_Table($connection);
 
         $this->_adapter
-            ->setTableName('PDF_Model_User')
-            ->setIdentityColumn('emailaddress')
+            ->setTableName('App_Model_User')
+            ->setIdentityColumn('email_address')
             ->setCredentialColumn('password');
 
         if ($this->_auth->hasIdentity()) {
@@ -50,9 +50,7 @@ class ACL_Model_Authentication
 
             // set the current user role
             $this->setCurrentRole($this->_current_user->accounttype);
-        }
-        else {
-
+        } else {
             $this->setCurrentRole('guest');
         }
     }
