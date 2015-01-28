@@ -39,7 +39,7 @@ class ACL_Model_Authentication
 
         $this->_adapter
             ->setTableName('App_Model_User')
-            ->setIdentityColumn('email_address')
+            ->setIdentityColumn('emailaddress')
             ->setCredentialColumn('password');
 
         if ($this->_auth->hasIdentity()) {
@@ -50,6 +50,7 @@ class ACL_Model_Authentication
 
             // set the current user role
             $this->setCurrentRole($this->_current_user->accounttype);
+
         } else {
             $this->setCurrentRole('guest');
         }
@@ -80,28 +81,23 @@ class ACL_Model_Authentication
     /**
      * logIn - Attempts to authenticate and login the user
      *
-     * @param string $email_address
+     * @param string $emailaddress
      * @param string $password
      * @access public
      * @return intger LOGIN_* const status code.
      */
-    public function logIn($email_address, $password)
+    public function logIn($emailaddress, $password)
     {
-        
-        if (!($email_address && $password)) {
+
+        if (!($emailaddress && $password)) {
 
             return self::LOGIN_MISSING_CREDENTIALS;
         }
 
-        if (!$user = PDF_Model_UserTable::getInstance()->findOneByEmailaddress($email_address)) {
+        if (!$user = App_Model_UserTable::getInstance()->findOneByEmailaddress($emailaddress)) {
 
             return self::LOGIN_INVALID_CREDENTIALS;
         }
-
-        //if (strtotime($user->locked_at)) {
-
-            //return self::LOGIN_ACCOUNT_LOCKED;
-        //}
 
         /**
          *  Technically the Zend_Auth_Adapter wont support verifying BCrypt hashes internally
@@ -112,7 +108,7 @@ class ACL_Model_Authentication
             return self::LOGIN_INVALID_CREDENTIALS;
         }
 
-        $this->_adapter->setIdentity($email_address);
+        $this->_adapter->setIdentity($user);
         $this->_adapter->setCredential($user->password);
 
         $result = $this->_auth->authenticate($this->_adapter);
@@ -222,7 +218,7 @@ class ACL_Model_Authentication
      */
     public function authoriseRequest(Zend_Controller_Request_Abstract $request)
     {
-  
+
         return $this->authoriseControllerAction($request->getModuleName(), $request->getControllerName(), $request->getActionName());
     }
 }

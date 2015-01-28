@@ -39,7 +39,7 @@ class App_Model_Base_User extends Doctrine_Record
             'length'        => '50'
         ));
 
-        $this->hasColumn('email_address', 'string', 255, array(
+        $this->hasColumn('emailaddress', 'string', 255, array(
             'type'          => 'string',
             'length'        => '255'
         ));

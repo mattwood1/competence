@@ -5,7 +5,7 @@ CREATE TABLE `users` (
     `modified` datetime NOT NULL,
     `firstname` varchar(50) NOT NULL DEFAULT '',
     `surname` varchar(50) NOT NULL DEFAULT '',
-    `email_address` varchar(255) NOT NULL DEFAULT '',
+    `emailaddress` varchar(255) NOT NULL DEFAULT '',
     `password` char(128) NOT NULL DEFAULT '',
     `role` char(50) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`),

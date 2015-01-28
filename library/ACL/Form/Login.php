@@ -5,10 +5,10 @@ class ACL_Form_Login extends Twitter_Bootstrap_Form_Horizontal
     {
         $this->setColType('sm');
 
-        $this->addElement("text", "username", array(
+        $this->addElement("text", "emailaddress", array(
                 "label" => "Username",
                 "required" => true,
-                "placeholder" => "Your username",
+                "placeholder" => "Your email address",
                 'decorators' => array('ViewHelper')
         ))
 

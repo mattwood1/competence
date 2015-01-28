@@ -22,7 +22,7 @@ try {
 
         $user->firstname     = $opts->firstname;
         $user->surname       = $opts->surname;
-        $user->email_address = $opts->email;
+        $user->emailaddress  = $opts->email;
         $user->password      = md5($opts->password);
         $user->role          = $opts->role;
 
