@@ -94,15 +94,11 @@ class ACL_Model_Authentication
             return self::LOGIN_MISSING_CREDENTIALS;
         }
         
-        _d($emailaddress, $password);
-
         if (!$user = App_Model_UserTable::getInstance()->findOneByEmailaddress($emailaddress)) {
 
             return self::LOGIN_INVALID_CREDENTIALS;
         }
 
-        _d($user, md5($password), $user->password);
-        
         /**
          *  Technically the Zend_Auth_Adapter wont support verifying BCrypt hashes internally
          *  so we verify it here and then pass through the verified hash as the credential if
