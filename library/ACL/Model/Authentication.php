@@ -49,7 +49,7 @@ class ACL_Model_Authentication
             $this->_current_user->refresh();
 
             // set the current user role
-            $this->setCurrentRole($this->_current_user->accounttype);
+            $this->setCurrentRole($this->_current_user->role);
 
         } else {
             $this->setCurrentRole('guest');
@@ -93,12 +93,16 @@ class ACL_Model_Authentication
 
             return self::LOGIN_MISSING_CREDENTIALS;
         }
+        
+        _d($emailaddress, $password);
 
         if (!$user = App_Model_UserTable::getInstance()->findOneByEmailaddress($emailaddress)) {
 
             return self::LOGIN_INVALID_CREDENTIALS;
         }
 
+        _d($user, md5($password), $user->password);
+        
         /**
          *  Technically the Zend_Auth_Adapter wont support verifying BCrypt hashes internally
          *  so we verify it here and then pass through the verified hash as the credential if
@@ -108,7 +112,7 @@ class ACL_Model_Authentication
             return self::LOGIN_INVALID_CREDENTIALS;
         }
 
-        $this->_adapter->setIdentity($user);
+        $this->_adapter->setIdentity($user->emailaddress);
         $this->_adapter->setCredential($user->password);
 
         $result = $this->_auth->authenticate($this->_adapter);
@@ -117,7 +121,7 @@ class ACL_Model_Authentication
 
             $this->_current_user = $user;
             $this->_auth->getStorage()->write($this->_current_user);
-            $this->setCurrentRole($this->_current_user->accounttype);
+            $this->setCurrentRole($this->_current_user->role);
 
             return self::LOGIN_SUCCESS;
         }

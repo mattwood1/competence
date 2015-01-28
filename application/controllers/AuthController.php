@@ -16,9 +16,8 @@ class AuthController extends Zend_Controller_Action
         $form = new ACL_Form_Login();
 
         if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
-            // process authentication
-            // OLD STYLE - $this->_performLogin($this->_request->getPost());
 
+            // process authentication
             switch($this->_auth->logIn($form->getValue('emailaddress'), $form->getValue('password'))) {
                 case ACL_Model_Authentication::LOGIN_MISSING_CREDENTIALS :
                     $this->_helper->flash->addError('Some login details are missing');
@@ -39,6 +38,12 @@ class AuthController extends Zend_Controller_Action
         }
 
         $this->view->form = $form;
+    }
+    
+    public function logoutAction()
+    {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_helper->redirector->gotoRoute(array('controller' => 'auth', 'action' => 'login'), null, true);
     }
 
 }
