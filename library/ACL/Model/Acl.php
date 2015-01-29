@@ -46,6 +46,17 @@ class ACL_Model_Acl extends Zend_Acl
                 )
             ),
             'allow' => array('admin'),
+        ),
+
+        'super_admin' => array(
+            'modules' => array(
+                'generator' => array(
+                    'controllers' => array(
+                        'index' => array('*')
+                    )
+                )
+            ),
+            'allow' => array('super'),
         )
     );
 

@@ -118,7 +118,7 @@ class ACL_Model_Authentication
             $this->_current_user = $user;
             $this->_auth->getStorage()->write($this->_current_user);
             $this->setCurrentRole($this->_current_user->role);
-
+            
             return self::LOGIN_SUCCESS;
         }
         else {

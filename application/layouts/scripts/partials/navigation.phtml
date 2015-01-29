@@ -1,3 +1,7 @@
+<?php
+$auth = Zend_Auth::getInstance();
+$acl = ACL_Model_Authentication::getInstance();
+?>
 <!-- Static navbar -->
 <div class="row">
 <div class="navbar navbar-default" role="navigation">
@@ -14,8 +18,20 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Index</a></li>
+                <?php if ($acl->authoriseResource('unauthenticated')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Guest</a></li>
+                <?php endif; ?>
+                
+                <?php if($acl->authoriseResource('base_user')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">User</a></li>
+                <?php endif; ?>
+                
+                <?php if($acl->authoriseResource('admin')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Admin</a></li>
+                <?php endif; ?>
+                
+                <?php if($acl->authoriseResource('super_admin')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Super</a></li>
                 <?php endif; ?>
             </ul>
 
