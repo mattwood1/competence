@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="container">
-            <?php echo $this->partial('partials/navigation.phtml', array('keyword' => $this->keyword)); ?>
+            <?php echo $this->partial('partials/navigation.phtml', array('keyword' => $this->keyword, 'acl' => $this->acl)); ?>
             <?php echo $this->title ? '<div class="page-header"><h2>' . $this->title . ' <small>' . $this->subtitle . '</small></h2></div>' : ''; ?>
         	<?php echo $this->flash(); ?>
             <?php echo $this->layout()->content; ?>

@@ -1,7 +1,3 @@
-<?php
-$auth = Zend_Auth::getInstance();
-$acl = ACL_Model_Authentication::getInstance();
-?>
 <!-- Static navbar -->
 <div class="row">
 <div class="navbar navbar-default" role="navigation">
@@ -18,26 +14,26 @@ $acl = ACL_Model_Authentication::getInstance();
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php if ($acl->authoriseResource('unauthenticated')): ?>
+                <?php if ($this->acl->authoriseResource('unauthenticated')): ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Guest</a></li>
                 <?php endif; ?>
                 
-                <?php if($acl->authoriseResource('base_user')): ?>
+                <?php if($this->acl->authoriseResource('base_user')): ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">User</a></li>
                 <?php endif; ?>
                 
-                <?php if($acl->authoriseResource('admin')): ?>
+                <?php if($this->acl->authoriseResource('admin')): ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Admin</a></li>
                 <?php endif; ?>
                 
-                <?php if($acl->authoriseResource('super_admin')): ?>
+                <?php if($this->acl->authoriseResource('super_admin')): ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Super</a></li>
                 <?php endif; ?>
             </ul>
 
             <!-- Right Links -->
             <ul class="nav navbar-nav navbar-right">
-                <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                <?php if ($this->acl->isLoggedin()): ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'),null ,true); ?>">Log out <i class="fa fa-sign-out fa-fw"></i></a></li>
                 <?php else: ?>
                 <li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'),null ,true); ?>">Log in <i class="fa fa-sign-in fa-fw"></i></a></li>
