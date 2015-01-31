@@ -10,6 +10,6 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-//        _d($this->_request->getParams());
+        $this->view->headTitle('Welcome');
     }
 }
