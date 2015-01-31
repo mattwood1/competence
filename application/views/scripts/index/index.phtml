@@ -1,1 +1,92 @@
-Welcome
+<h1>Welcome</h1>
+
+<h2>Structure</h2>
+<p>This is the competence test. This is the plan.</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>ACL Rules</h3>
+
+        <h5>Guests</h5>
+        <ul>
+            <li>Can only log in.</li>
+        </ul>
+
+        <h5>Interviewee</h5>
+        <ul>
+            <li>Can take tests</li>
+        </ul>
+
+        <h5>Staff</h5>
+        <p>Can do what interviewees can, plus...</p>
+        <ul>
+            <li>Create Categories</li>
+            <li>Create Questions in Categories</li>
+        </ul>
+
+        <h5>Managers</h5>
+        <p>Can do what employees can, plus...</p>
+        <ul>
+            <li>Publish Questions (Approve)</li>
+            <li>Add Users</li>
+            <li>Assign interviewees test categories</li>
+            <li>Assign time for the test to be allowed</li>
+            <li>See Test results</li>
+        </ul>
+    </div>
+    
+    <div class="col-md-4">
+        <h3>Action Structure</h3>
+        
+        <h5>Test</h5>
+        <ul>
+            <li>Create - Create a test, assign it to users. <em>Managers</em></li>
+            <li>Edit - Edit a test that not been taken. <em>Managers</em></li>
+            <li>Delete - Delete a test that has not been taken. <em>Managers</em></li>
+            <li>Take - Take a test</li>
+            <li>Result - Get the results of a test. <em>Managers</em></li>
+        </ul>
+        <h5>Category</h5>
+        <ul>
+            <li>Add - Add a category.</li>
+            <li>Edit - Edit a category. Probably not much here.</li>
+            <li>Delete - Delete an old category.</li>
+        </ul>
+        <h5>Question</h5>
+        <ul>
+            <li>Add - Adds a question, assign to a category.</li>
+            <li>Edit - Edit a question.</li>
+            <li>Delete - Delete a question.</li>
+            <li>Publish - Approves the question to be taken in a test. <em>Managers</em></li>
+        </ul>
+        
+        <small>All delete actions will be soft deletes</small>
+    </div>
+    
+    <div class="col-md-4">
+        <h3>Model Structure</h3>
+        
+        <h5>User</h5>
+        <ul>
+            <li>Is assigned tests</li>
+        </ul>
+        <h5>Test</h5>
+        <ul>
+            <li>Assigned an array of categories</li>
+            <li>Assigned a time frame</li>
+            <li>Test results can be viewed</li>
+        </ul>
+        <h5>Category</h5>
+        <ul>
+            <li>Can have many questions</li>
+            <li>Basically just a label to define types of questions</li>
+        </ul>
+        <h5>Question</h5>
+        <ul>
+            <li>Many different types of questions</li>
+            <li>Assigned to one category</li>
+            <li>Estimated time to be completed</li>
+            <li>Average time to be completed</li>
+        </ul>
+    </div>
+</div>
