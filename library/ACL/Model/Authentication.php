@@ -1,7 +1,7 @@
 <?php
 
 /**
- * LS_Model_Authentication
+ * ACL_Model_Authentication
  *
  * Singleton class to handle user authentication / authorisation in the system.
  *
@@ -60,7 +60,7 @@ class ACL_Model_Authentication
      * getInstance Returns singleton instance of the model
      *
      * @access public
-     * @return LS_Model_Authentication instance
+     * @return ACL_Model_Authentication instance
      */
     public function getInstance()
     {
@@ -177,7 +177,7 @@ class ACL_Model_Authentication
      * getCurrentUser Returns the current logged in user
      *
      * @access public
-     * @return LS_Model_User
+     * @return ACL_Model_User
      */
     public function getCurrentUser()
     {
