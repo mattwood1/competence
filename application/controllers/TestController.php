@@ -13,6 +13,9 @@ class TestController extends Zend_Controller_Action
         // Display a list of tests and statuses (taken, to be taken, deleted)
         
         // if user is interviewee show tests to take assigned to user
+        
+        
+        $this->view->headTitle('Tests');
     }
 
     public function takeAction()

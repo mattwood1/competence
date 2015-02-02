@@ -1,6 +1,6 @@
 <?php
 
-class TestController extends Zend_Controller_Action
+class QuestionController extends Zend_Controller_Action
 {
 
     public function init()
@@ -10,7 +10,7 @@ class TestController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->view->headTitle('Tests');
+        $this->view->headTitle('Questions');
     }
     
     public function editAction()

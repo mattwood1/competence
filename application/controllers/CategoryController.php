@@ -11,7 +11,7 @@ class CategoryController extends Zend_Controller_Action
     public function indexAction()
     {
         // List the Current categories
-        $this->view->headTitle('Welcome');
+        $this->view->headTitle('Categories');
     }
     
     public function editAction()
