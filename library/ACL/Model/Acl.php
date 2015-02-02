@@ -39,7 +39,7 @@ class ACL_Model_Acl extends Zend_Acl
 
         'staff' => array(
             'modules' => array(
-                'generator' => array(
+                'default' => array(
                     'controllers' => array(
                         'index' => array('*'),
                         'test' => array('*'),
@@ -53,7 +53,7 @@ class ACL_Model_Acl extends Zend_Acl
 
         'manager' => array(
             'modules' => array(
-                'generator' => array(
+                'default' => array(
                     'controllers' => array(
                         'index' => array('*'),
                         'test' => array('*'),
@@ -106,31 +106,31 @@ class ACL_Model_Acl extends Zend_Acl
 
         foreach ($this->_acl_resources as $resource => $attr) {
 
-			if(isset($attr['modules']) && is_array($attr['modules'])) {
+            if(isset($attr['modules']) && is_array($attr['modules'])) {
 
-			    foreach($attr['modules'] as $res_module => $moduleAttr) {
+                foreach($attr['modules'] as $res_module => $moduleAttr) {
 
-                                if (isset($moduleAttr['controllers']) && is_array($moduleAttr['controllers'])) {
+                    if (isset($moduleAttr['controllers']) && is_array($moduleAttr['controllers'])) {
 
-                                    foreach ($moduleAttr['controllers'] as $res_ctrlr => $actions) {
+                        foreach ($moduleAttr['controllers'] as $res_ctrlr => $actions) {
 
-                                        if ($res_module == $module && $res_ctrlr == $controller) {
+                            if ($res_module == $module && $res_ctrlr == $controller) {
 
-                                            foreach ($actions as $res_action) {
+                                foreach ($actions as $res_action) {
 
-                                                if ($res_action == $action || $res_action == '*') {
+                                    if ($res_action == $action || $res_action == '*') {
 
-                                                    if ($this->isAllowed($role, $resource)) {
+                                        if ($this->isAllowed($role, $resource)) {
 
-                                                        return true;
-                                                    }
-                                                }
-                                            }
+                                            return true;
                                         }
                                     }
                                 }
-			    }
-			}
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         return false;
