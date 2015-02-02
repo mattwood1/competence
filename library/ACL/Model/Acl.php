@@ -3,14 +3,14 @@
 class ACL_Model_Acl extends Zend_Acl
 {
 
-    protected $_ls_roles = array(
+    protected $_acl_roles = array(
         'guest' => null,
         'user'  => 'guest',
         'admin' => 'user',
         'super' => 'admin'
     );
 
-    protected $_ls_resources = array(
+    protected $_acl_resources = array(
 
         // anyone who's not logged into the system
         'unauthenticated' => array(
@@ -63,7 +63,7 @@ class ACL_Model_Acl extends Zend_Acl
     public function __construct()
     {
         // add all defined gd_roles
-        foreach ($this->_ls_roles as $role => $parents) {
+        foreach ($this->_acl_roles as $role => $parents) {
 
             if ($parents) {
 
@@ -77,7 +77,7 @@ class ACL_Model_Acl extends Zend_Acl
 
         // add all defined resources
 
-        foreach ($this->_ls_resources as $resource => $attr) {
+        foreach ($this->_acl_resources as $resource => $attr) {
             $this->add(new Zend_Acl_Resource($resource));
 				// set appropriate permissions
 	            foreach (array('allow', 'deny') as $perm) {
@@ -98,7 +98,7 @@ class ACL_Model_Acl extends Zend_Acl
     public function canDispatch($role, $module, $controller, $action)
     {
 
-        foreach ($this->_ls_resources as $resource => $attr) {
+        foreach ($this->_acl_resources as $resource => $attr) {
 
 			if(isset($attr['modules']) && is_array($attr['modules'])) {
 

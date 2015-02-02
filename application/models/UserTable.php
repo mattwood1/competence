@@ -1,6 +1,6 @@
 <?php
 /**
-* LS_Model_CustomerTable
+* App_Model_CustomerTable
 * Table for for Customer model
 * @uses Doctrine_Table
 * @author James Matthews
