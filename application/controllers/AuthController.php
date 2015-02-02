@@ -46,5 +46,10 @@ class AuthController extends Zend_Controller_Action
         Zend_Auth::getInstance()->clearIdentity();
         $this->_helper->redirector->gotoRoute(array('controller' => 'auth', 'action' => 'login'), null, true);
     }
+    
+    public function forbiddenAction()
+    {
+        exit();
+    }
 
 }

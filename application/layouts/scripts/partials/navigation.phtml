@@ -18,16 +18,16 @@
                 <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Guest</a></li>
                 <?php endif; ?>
                 
-                <?php if($this->acl->authoriseResource('base_user')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">User</a></li>
+                <?php if($this->acl->authoriseResource('interviewee')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Interviewee</a></li>
                 <?php endif; ?>
                 
-                <?php if($this->acl->authoriseResource('admin')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Admin</a></li>
+                <?php if($this->acl->authoriseResource('staff')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Staff</a></li>
                 <?php endif; ?>
                 
-                <?php if($this->acl->authoriseResource('super_admin')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Super</a></li>
+                <?php if($this->acl->authoriseResource('manager')): ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Manager</a></li>
                 <?php endif; ?>
             </ul>
 

@@ -4,10 +4,10 @@ class ACL_Model_Acl extends Zend_Acl
 {
 
     protected $_acl_roles = array(
-        'guest' => null,
-        'user'  => 'guest',
-        'admin' => 'user',
-        'super' => 'admin'
+        'guest'        => null,
+        'interviewee'  => 'guest',
+        'staff'        => 'interviewee',
+        'manager'      => 'staff'
     );
 
     protected $_acl_resources = array(
@@ -25,8 +25,7 @@ class ACL_Model_Acl extends Zend_Acl
             'allow' => array('guest')
         ),
 
-        // base standard user allowances
-        'base_user' => array(
+        'interviewee' => array(
             'modules' => array(
                 'default' => array(
                     'controllers' => array(
@@ -34,10 +33,10 @@ class ACL_Model_Acl extends Zend_Acl
                     )
                 )
             ),
-            'allow' => array('user')
+            'allow' => array('interviewee')
         ),
 
-        'admin' => array(
+        'staff' => array(
             'modules' => array(
                 'generator' => array(
                     'controllers' => array(
@@ -45,10 +44,10 @@ class ACL_Model_Acl extends Zend_Acl
                     )
                 )
             ),
-            'allow' => array('admin'),
+            'allow' => array('staff'),
         ),
 
-        'super_admin' => array(
+        'manager' => array(
             'modules' => array(
                 'generator' => array(
                     'controllers' => array(
@@ -56,7 +55,7 @@ class ACL_Model_Acl extends Zend_Acl
                     )
                 )
             ),
-            'allow' => array('super'),
+            'allow' => array('manager'),
         )
     );
 
