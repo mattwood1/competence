@@ -14,20 +14,16 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php if ($this->acl->authoriseResource('unauthenticated')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Guest</a></li>
-                <?php endif; ?>
-                
                 <?php if($this->acl->authoriseResource('interviewee')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Interviewee</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'index'), null, true);?>">Test</a></li>
                 <?php endif; ?>
                 
                 <?php if($this->acl->authoriseResource('staff')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Staff</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'index'), null, true);?>">Category</a></li>
                 <?php endif; ?>
                 
                 <?php if($this->acl->authoriseResource('manager')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true);?>">Manager</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'question', 'action' => 'index'), null, true);?>">Question</a></li>
                 <?php endif; ?>
             </ul>
 

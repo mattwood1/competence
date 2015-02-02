@@ -15,12 +15,12 @@ class ACL_Model_Acl extends Zend_Acl
         // anyone who's not logged into the system
         'unauthenticated' => array(
             'modules' => array(
-                    'default' => array(
-                        'controllers' => array(
-                            'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
-                            'error' => array('*')
-                        )
-                            ),
+                'default' => array(
+                    'controllers' => array(
+                        'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
+                        'error' => array('*')
+                    )
+                ),
             ),
             'allow' => array('guest')
         ),
@@ -30,6 +30,7 @@ class ACL_Model_Acl extends Zend_Acl
                 'default' => array(
                     'controllers' => array(
                         'index' => array('*'),
+                        'test' => array('index'),
                     )
                 )
             ),
@@ -40,7 +41,10 @@ class ACL_Model_Acl extends Zend_Acl
             'modules' => array(
                 'generator' => array(
                     'controllers' => array(
-                        'index' => array('*')
+                        'index' => array('*'),
+                        'test' => array('*'),
+                        'category' => array('*'),
+                        'question' => array('*'),
                     )
                 )
             ),
@@ -51,7 +55,10 @@ class ACL_Model_Acl extends Zend_Acl
             'modules' => array(
                 'generator' => array(
                     'controllers' => array(
-                        'index' => array('*')
+                        'index' => array('*'),
+                        'test' => array('*'),
+                        'category' => array('*'),
+                        'question' => array('*'),
                     )
                 )
             ),
