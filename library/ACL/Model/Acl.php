@@ -39,7 +39,7 @@ class ACL_Model_Acl extends Zend_Acl
 
         'admin' => array(
             'modules' => array(
-                'generator' => array(
+                'default' => array(
                     'controllers' => array(
                         'index' => array('*')
                     )
@@ -50,7 +50,7 @@ class ACL_Model_Acl extends Zend_Acl
 
         'super_admin' => array(
             'modules' => array(
-                'generator' => array(
+                'default' => array(
                     'controllers' => array(
                         'index' => array('*')
                     )
