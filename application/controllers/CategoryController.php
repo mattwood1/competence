@@ -16,7 +16,21 @@ class CategoryController extends Zend_Controller_Action
     
     public function editAction()
     {
-        // Create Category if id is null
+        $form = new App_Form_Category_Edit();
+        
+        if ($this->_request->getParam('id')) {
+            $categoryTable = new App_Model_CategoryTable();
+            $category = $categoryTable->getInstance()->find($this->_request->getParam('id'));
+        } else {
+            $category = new App_Model_Category();
+        }
+        
+        if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
+            $category->fromArray($form->getValues())->save();
+        }
+        
+        $form->populate($category->toArray());
+        $this->view->form = $form;
     }
     
     public function deleteAction()

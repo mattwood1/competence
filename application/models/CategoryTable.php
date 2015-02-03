@@ -6,7 +6,7 @@
 * @author James Matthews
 */
 
-class App_Model_CategoryTable extends Doctrine_Table
+class App_Model_CategoryTable extends Doctrine_Record
 {
     public static function getInstance()
     {
