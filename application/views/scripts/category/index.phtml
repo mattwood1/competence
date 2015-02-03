@@ -1,3 +1,27 @@
 <h1>Categories</h1>
 
 <a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'edit'), null, true); ?>" class="btn btn-default">Add Category</a>
+
+<?php if ($this->categories): ?>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->categories as $category): ?>
+        <tr>
+            <td><?php echo $category->name; ?></td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'edit', 'id' => $category->id), null, true); ?>" class="btn btn-default btn-xs">Edit</a>
+                    <a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'delete', 'id' => $category->id), null, true); ?>" class="btn btn-default btn-xs">Delete</a>
+                </div>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php endif; ?>
