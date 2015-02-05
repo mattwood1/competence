@@ -34,10 +34,10 @@
             <li>See Test results</li>
         </ul>
     </div>
-    
+
     <div class="col-md-4">
         <h3>Action Structure</h3>
-        
+
         <h5>Test</h5>
         <ul>
             <li>Create - Create a test, assign it to users. <em>Managers</em></li>
@@ -46,26 +46,27 @@
             <li>Take - Take a test</li>
             <li>Result - Get the results of a test. <em>Managers</em></li>
         </ul>
-        <h5>Category</h5>
+        <h5><i class="fa fa-check text-success"></i> Category</h5>
         <ul>
-            <li>Add - Add a category.</li>
-            <li>Edit - Edit a category. Probably not much here.</li>
-            <li>Delete - Delete an old category.</li>
+            <li><i class="fa fa-check text-success"></i> Add - Add a category.</li>
+            <li><i class="fa fa-check text-success"></i> Edit - Edit a category. Probably not much here.</li>
+            <li><i class="fa fa-check text-success"></i> Delete - Delete an old category.</li>
         </ul>
         <h5>Question</h5>
         <ul>
+            <li>Must have a category</li>
             <li>Add - Adds a question, assign to a category.</li>
             <li>Edit - Edit a question.</li>
             <li>Delete - Delete a question.</li>
             <li>Publish - Approves the question to be taken in a test. <em>Managers</em></li>
         </ul>
-        
+
         <small>All delete actions will be soft deletes</small>
     </div>
-    
+
     <div class="col-md-4">
         <h3>Model Structure</h3>
-        
+
         <h5>User</h5>
         <ul>
             <li>Is assigned tests</li>
@@ -79,7 +80,7 @@
         <h5>Category</h5>
         <ul>
             <li>Can have many questions</li>
-            <li>Basically just a label to define types of questions</li>
+            <li><i class="fa fa-check text-success"></i> Basically just a label to define types of questions</li>
         </ul>
         <h5>Question</h5>
         <ul>

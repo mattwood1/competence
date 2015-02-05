@@ -12,17 +12,21 @@ class QuestionController extends Zend_Controller_Action
     {
         $this->view->headTitle('Questions');
     }
-    
+
     public function editAction()
     {
-        // Create a new test if id is null
+        $this->view->headTitle('Edit Question');
+
+        $form = new App_Form_Question_Edit();
+
+        $this->view->form = $form;
     }
-    
+
     public function deleteAction()
     {
-        
+
     }
-    
+
     public function publishAction()
     {
         // Make this question available to intreviewees.

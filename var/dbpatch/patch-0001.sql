@@ -1,5 +1,5 @@
 -- Create Users Table
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `created` datetime NOT NULL,
     `modified` datetime NOT NULL,
@@ -10,4 +10,4 @@ CREATE TABLE `users` (
     `role` char(50) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`),
     KEY `email_address` (`email_address`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
