@@ -2,6 +2,7 @@
 CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
+  `categoryid` INT NOT NULL,
   `type` text NOT NULL,
   `question` text NOT NULL,
   `answers` text NOT NULL,

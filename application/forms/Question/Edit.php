@@ -9,7 +9,7 @@ class App_Form_Question_Edit extends Twitter_Bootstrap_Form_Horizontal
             "placeholder" => "Name for the question"
         ))
 
-        ->addElement("select", "category", array(
+        ->addElement("select", "categoryid", array(
             "label" => "Category",
             "required" => true,
             "multiOptions" => App_Model_CategoryTable::getInstance()->fetchPairs()

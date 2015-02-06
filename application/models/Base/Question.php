@@ -34,6 +34,11 @@ class App_Model_Base_Question extends Doctrine_Record
             'length'        => '5000'
         ));
 
+        $this->hasColumn('categoryid', 'integer', 4, array(
+                'type'          => 'integer',
+                'length'        => '4'
+        ));
+
         $this->hasColumn('type', 'string', 10000, array(
                 'type'          => 'string',
                 'length'        => '10000'
