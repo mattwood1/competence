@@ -69,5 +69,10 @@ class App_Model_Base_Question extends Doctrine_Record
     {
         $this->actAs('Timestampable');
         $this->actAs('SoftDelete');
+        
+        $this->hasOne('App_Model_Category as category', array(
+            'local' => 'categoryid',
+            'remote' => 'id'
+        ));
     }
 }

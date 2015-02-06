@@ -42,7 +42,13 @@ class QuestionController extends Zend_Controller_Action
 
     public function deleteAction()
     {
+        $question = App_Model_QuestionTable::getInstance()->find($this->_request->getParam('id'));
+        $question->delete();
 
+        $this->_helper->flash->addWarning($question->name . ' has been deleted');
+
+        $this->_helper->redirector->gotoRoute(array('controller' => 'question', 'action' => 'index'), null, true);
+    
     }
 
     public function publishAction()

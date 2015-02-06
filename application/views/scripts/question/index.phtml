@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Category</th>
                     <th><span class="pull-right">Action</span></th>
                 </tr>
             </thead>
@@ -14,6 +15,7 @@
                 <?php foreach ($this->questions as $question): ?>
                 <tr>
                     <td><?php echo $question->name; ?></td>
+                    <td><?php echo $question->category->name; ?></td>
                     <td>
                         <div class="btn-group pull-right" role="group">
                             <a href="<?php echo $this->url(array('controller' => 'question', 'action' => 'edit', 'id' => $question->id), null, true); ?>" class="btn btn-default btn-xs">Edit</a>
