@@ -9,11 +9,10 @@ class App_Form_Question_Edit extends Twitter_Bootstrap_Form_Horizontal
             "placeholder" => "Name for the question"
         ))
 
-        ->addElement("textarea", "question", array(
-            "label" => "Question",
+        ->addElement("select", "category", array(
+            "label" => "Category",
             "required" => true,
-            "rows" => 3,
-            "placeholder" => "Your Question"
+            "multiOptions" => App_Model_CategoryTable::getInstance()->fetchPairs()
         ))
 
         ->addElement("select", "type", array(
@@ -25,6 +24,13 @@ class App_Form_Question_Edit extends Twitter_Bootstrap_Form_Horizontal
                 "text" => "Free Text",
                 "code" => "Code Text"
             )
+        ))
+
+        ->addElement("textarea", "question", array(
+            "label" => "Question",
+            "required" => true,
+            "rows" => 3,
+            "placeholder" => "Your Question"
         ))
 
         ->addElement("textarea", "answers", array(

@@ -12,9 +12,7 @@ class CategoryController extends Zend_Controller_Action
     {
         // List the Current categories
         $this->view->headTitle('Categories');
-
-        $categoryTable = new App_Model_CategoryTable();
-        $categories = $categoryTable->getInstance()->findAll();
+        $categories = App_Model_CategoryTable::getInstance()->findAll();
 
         $this->view->categories = $categories;
     }
@@ -25,8 +23,7 @@ class CategoryController extends Zend_Controller_Action
         $form = new App_Form_Category_Edit();
 
         if ($this->_request->getParam('id')) {
-            $categoryTable = new App_Model_CategoryTable();
-            $category = $categoryTable->getInstance()->find($this->_request->getParam('id'));
+            $category = App_Model_CategoryTable::getInstance()->find($this->_request->getParam('id'));
         } else {
             $category = new App_Model_Category();
         }
@@ -45,9 +42,8 @@ class CategoryController extends Zend_Controller_Action
 
     public function deleteAction()
     {
-        $categoryTable = new App_Model_CategoryTable();
-        $category = $categoryTable->getInstance()->find($this->_request->getParam('id'));
-//        $category->delete();
+        $category = App_Model_CategoryTable::getInstance()->find($this->_request->getParam('id'));
+        $category->delete();
 
         $this->_helper->flash->addWarning($category->name . ' has been deleted');
 

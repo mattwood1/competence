@@ -6,7 +6,7 @@
 * @author James Matthews
 */
 
-class App_Model_QuestionTable extends Doctrine_Record
+class App_Model_QuestionTable extends Doctrine_Table
 {
     public static function getInstance()
     {
