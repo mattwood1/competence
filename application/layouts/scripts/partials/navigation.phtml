@@ -15,15 +15,16 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <?php if($this->acl->authoriseResource('interviewee')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'index'), null, true);?>">Test</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'index'), null, true);?>">Tests</a></li>
                 <?php endif; ?>
                 
                 <?php if($this->acl->authoriseResource('staff')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'index'), null, true);?>">Category</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'index'), null, true);?>">Categories</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'question', 'action' => 'index'), null, true);?>">Questions</a></li>
                 <?php endif; ?>
                 
                 <?php if($this->acl->authoriseResource('manager')): ?>
-                <li><a href="<?php echo $this->url(array('controller' => 'question', 'action' => 'index'), null, true);?>">Question</a></li>
+                <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index'), null, true);?>">Users</a></li>
                 <?php endif; ?>
             </ul>
 

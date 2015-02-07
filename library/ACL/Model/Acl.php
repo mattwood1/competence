@@ -30,7 +30,7 @@ class ACL_Model_Acl extends Zend_Acl
                 'default' => array(
                     'controllers' => array(
                         'index' => array('*'),
-                        'test' => array('index'),
+                        'test'  => array('index'),
                     )
                 )
             ),
@@ -41,8 +41,8 @@ class ACL_Model_Acl extends Zend_Acl
             'modules' => array(
                 'default' => array(
                     'controllers' => array(
-                        'index' => array('*'),
-                        'test' => array('*'),
+                        'index'    => array('*'),
+                        'test'     => array('*'),
                         'category' => array('*'),
                         'question' => array('*'),
                     )
@@ -55,10 +55,11 @@ class ACL_Model_Acl extends Zend_Acl
             'modules' => array(
                 'default' => array(
                     'controllers' => array(
-                        'index' => array('*'),
-                        'test' => array('*'),
+                        'index'    => array('*'),
+                        'test'     => array('*'),
                         'category' => array('*'),
                         'question' => array('*'),
+                        'user'     => array('*'),
                     )
                 )
             ),
