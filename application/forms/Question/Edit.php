@@ -18,12 +18,13 @@ class App_Form_Question_Edit extends Twitter_Bootstrap_Form_Horizontal
         ->addElement("select", "type", array(
             "label" => "Question Type",
             "required" => true,
-            "multiOptions" => array (
-                "single" => "Single Choice",
-                "multi" => "Multiple Choice",
-                "text" => "Free Text",
-                "code" => "Code Text"
-            )
+            "multiOptions" => App_Model_QuestionTable::$_type
+        ))
+
+        ->addElement("select", "level", array(
+            "label" => "Question Type",
+            "required" => true,
+            "multiOptions" => App_Model_QuestionTable::$_level
         ))
 
         ->addElement("textarea", "question", array(

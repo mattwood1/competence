@@ -1,6 +1,6 @@
 <?php
 
-Doctrine_Manager::getInstance()->bindComponent('App_Model_Question', 'doctrine');
+Doctrine_Manager::getInstance()->bindComponent('App_Model_QuestionVersion', 'doctrine');
 
 /**
  * App_Model_Base_User
@@ -8,7 +8,7 @@ Doctrine_Manager::getInstance()->bindComponent('App_Model_Question', 'doctrine')
  * @uses Doctrine_Record
  * @author Matthew Wood <matthew@xigen.co.uk>
  */
-class App_Model_Base_Question extends Doctrine_Record
+class App_Model_Base_QuestionVersion extends Doctrine_Record
 {
 
     /**
@@ -19,7 +19,7 @@ class App_Model_Base_Question extends Doctrine_Record
      */
     public function setTableDefinition()
     {
-        $this->setTableName('questions');
+        $this->setTableName('questions_version');
 
         $this->hasColumn('id', 'integer', 4, array(
             'type'          => 'integer',
@@ -77,19 +77,19 @@ class App_Model_Base_Question extends Doctrine_Record
      */
     public function setUp()
     {
-        $this->actAs('Timestampable');
+//        $this->actAs('Timestampable');
         $this->actAs('SoftDelete');
-        
-        $this->actAs('Versionable', array(
-                'versionColumn' => 'version',
-                'className' => '%CLASS%Version',
-                'auditLog' => true
-            )
-        );
-        
-        $this->hasOne('App_Model_Category as category', array(
-            'local' => 'categoryid',
-            'remote' => 'id'
-        ));
+//        
+//        $this->actAs('Versionable', array(
+//                'versionColumn' => 'version',
+//                'className' => '%CLASS%Version',
+//                'auditLog' => true
+//            )
+//        );
+//        
+//        $this->hasOne('App_Model_Category as category', array(
+//            'local' => 'categoryid',
+//            'remote' => 'id'
+//        ));
     }
 }
