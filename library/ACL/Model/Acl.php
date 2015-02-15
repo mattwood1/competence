@@ -17,7 +17,7 @@ class ACL_Model_Acl extends Zend_Acl
             'modules' => array(
                     'default' => array(
                         'controllers' => array(
-                            'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
+                            'auth'  => array('login', 'logout', 'forgotton', 'forbidden'),
                             'error' => array('*')
                         )
                             ),

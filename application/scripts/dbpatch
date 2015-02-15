@@ -1,6 +1,7 @@
 #!/usr/bin/php -qd register_argc_argv=on
 <?php
 
+define('SKIP_AUTH', true);
 require(dirname(__FILE__) . '/../init.php');
 
 $config = new DbPatch_Core_Config(APPLICATION_PATH . '/configs/application.ini');

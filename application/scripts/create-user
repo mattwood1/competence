@@ -2,6 +2,7 @@
 <?php
 
 // cli initialisation
+define('SKIP_AUTH', true);
 require(dirname(__FILE__) . '/../init.php');
 
 try {

@@ -46,5 +46,27 @@ class AuthController extends Zend_Controller_Action
         Zend_Auth::getInstance()->clearIdentity();
         $this->_helper->redirector->gotoRoute(array('controller' => 'auth', 'action' => 'login'), null, true);
     }
+    
+    public function forgottonAction()
+    {
+        $form = new ACL_Form_Forgotton();
+        
+        if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
+            $user = App_Model_UserTable::getInstance()->findOneByEmailaddress($form->getValue('emailaddress'));
+            
+            $user->updated_at = date("Y-m-d h:i:s");
+            $user->save();
+            
+            
+            _d($user);
+        }
+        
+        $this->view->form = $form;
+    }
+    
+    public function forbiddenAction()
+    {
+        
+    }
 
 }

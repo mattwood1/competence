@@ -45,9 +45,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initRegisterPlugins()
     {
-        $this->bootstrap('Frontcontroller')->getResource('Frontcontroller')
-//            ->registerPlugin(new Coda_Controller_Plugin_Auth())
-        ;
+        if (!defined('SKIP_AUTH')) {
+            $this->bootstrap('Frontcontroller')->getResource('Frontcontroller')
+                ->registerPlugin(new ACL_Plugin_AuthControl())
+            ;
+        }
     }
 
 }
