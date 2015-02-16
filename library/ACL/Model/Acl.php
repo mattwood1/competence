@@ -15,12 +15,12 @@ class ACL_Model_Acl extends Zend_Acl
         // anyone who's not logged into the system
         'unauthenticated' => array(
             'modules' => array(
-                'default' => array(
-                    'controllers' => array(
-                        'auth'  => array('login', 'logout', 'forgot-password', 'forbidden'),
-                        'error' => array('*')
-                    )
-                ),
+                    'default' => array(
+                        'controllers' => array(
+                            'auth'  => array('login', 'logout', 'forgotton', 'forbidden'),
+                            'error' => array('*')
+                        )
+                            ),
             ),
             'allow' => array('guest')
         ),

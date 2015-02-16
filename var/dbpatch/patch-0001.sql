@@ -1,8 +1,9 @@
 -- Create Users Table
 CREATE TABLE IF NOT EXISTS `users` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-    `created` datetime NOT NULL,
-    `modified` datetime NOT NULL,
+    `created_at` datetime NULL,
+    `updated_at` datetime NULL,
+    `deleted_at` datetime NULL,
     `firstname` varchar(50) NOT NULL DEFAULT '',
     `surname` varchar(50) NOT NULL DEFAULT '',
     `emailaddress` varchar(255) NOT NULL DEFAULT '',

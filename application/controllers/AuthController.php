@@ -47,9 +47,36 @@ class AuthController extends Zend_Controller_Action
         $this->_helper->redirector->gotoRoute(array('controller' => 'auth', 'action' => 'login'), null, true);
     }
     
+    public function forgottonAction()
+    {
+        $form = new ACL_Form_Forgotton();
+        
+        if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
+            $user = App_Model_UserTable::getInstance()->findOneByEmailaddress($form->getValue('emailaddress'));
+            
+            $user->updated_at = date("Y-m-d h:i:s");
+            $user->save();
+            
+            $key = md5( $user->password . $user->updated_at);
+            
+            
+            _d($user, $key);
+            
+            $mail = new Zend_Mail();
+            $mail->setBodyText('This is the text of the mail.');
+            $mail->setBodyHtml('<a href="http://competence.privatedns.org/auth/forgotton/email/'.$user->emailaddress.'/key/'.$key.'"');
+            $mail->setFrom('somebody@competence.privatedns.org', 'Competence');
+            $mail->addTo('$user->emailaddress', 'User');
+            $mail->setSubject('Password Reset');
+            $mail->send();
+        }
+        
+        $this->view->form = $form;
+    }
+    
     public function forbiddenAction()
     {
-
+        
     }
 
 }

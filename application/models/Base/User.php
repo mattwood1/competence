@@ -54,8 +54,9 @@ class App_Model_Base_User extends Doctrine_Record
             'length'        => '50'
         ));
 
-        $this->hasColumn('created', 'timestamp');
-        $this->hasColumn('modified', 'timestamp');
+        $this->hasColumn('created_at', 'timestamp');
+        $this->hasColumn('updated_at', 'timestamp');
+        $this->hasColumn('deleted_at', 'timestamp');
     }
 
     /**
@@ -66,6 +67,7 @@ class App_Model_Base_User extends Doctrine_Record
      */
     public function setUp()
     {
-
+        $this->actAs('Timestampable');
+        $this->actAs('SoftDelete');
     }
 }
