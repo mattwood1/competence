@@ -5,7 +5,14 @@
                 <h2>Forgotton Password <i class="fa fa-sign-in"></i></h2>
             </div>
             <div class="panel-body">
-                <?php echo $this->form; ?>
+                <?php 
+                if ($this->form):
+                    echo $this->form;
+                else:
+                ?>
+                <p>Cannot reset your password using the email and key method.</p>
+                <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'forgotton'), null, true) ?>" class="btn btn-default">Try again</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

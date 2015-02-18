@@ -3,6 +3,8 @@ class ACL_Form_Login extends Twitter_Bootstrap_Form_Horizontal
 {
     public function init()
     {
+        $this->addPrefixPath('Code_Form_Element', 'Code/Form/Element', 'element');
+
         $this->setLabelColSize(4);
         $this->setFieldColSize(8);
         $this->setColType('sm');
@@ -19,8 +21,27 @@ class ACL_Form_Login extends Twitter_Bootstrap_Form_Horizontal
                 "placeholder" => "Your password",
         ))
 
-        ->addElement("submit", "login", array(
-            "label" => "Log in"
-        ));
+        ->addElement("button", "login", array(
+            "label" => "Log in",
+            "type" => "submit"
+        ))
+
+        ->addElement("link", "forgotton", array(
+            'label' => "Forgotton Password",
+            'value' => "Forgotton Password",
+            'class' => "btn btn-default",
+            'url' => '/auth/forgotton'
+        ))
+        ;
+
+        $this->addDisplayGroup(
+            array('login', 'forgotton'),
+            'actions',
+            array(
+                'disableLoadDefaultDecorators' => true,
+                'decorators' => array('Actions'),
+                'class' => 'pull-right'
+            )
+        );
     }
 }

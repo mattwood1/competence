@@ -4,12 +4,24 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/mwood/public_html/competence/library/ACL/Model/Authentication.php</file>
-            <file>file:/home/mwood/public_html/competence/application/controllers/AuthController.php</file>
-            <file>file:/home/mwood/public_html/competence/library/ACL/Plugin/AuthControl.php</file>
-            <file>file:/home/mwood/public_html/competence/library/ACL/Form/Login.php</file>
-            <file>file:/home/mwood/public_html/competence/application/controllers/IndexController.php</file>
+            <file>file:/home/mwood/public_html/competence/application/Bootstrap.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Twitter/Bootstrap/Form/Element/Button.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Code/Form/Element/Link.php</file>
             <file>file:/home/mwood/public_html/competence/application/configs/application.ini</file>
             <file>file:/home/mwood/public_html/competence/application/views/scripts/auth/login.phtml</file>
+            <file>file:/home/mwood/public_html/competence/library/ACL/Model/Table.php</file>
+            <file>file:/home/mwood/public_html/competence/library/ACL/Model/Acl.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Twitter/Bootstrap/Form/Decorator/FormElements.php</file>
+            <file>file:/home/mwood/public_html/competence/library/ACL/Plugin/AuthControl.php</file>
+            <file>file:/home/mwood/public_html/competence/application/controllers/AuthController.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Twitter/Bootstrap/Form/DisplayGroup.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Code/View/Helper/FormLink.php</file>
+            <file>file:/home/mwood/public_html/competence/library/ACL/Form/Login.php</file>
+            <file>file:/home/mwood/public_html/competence/application/controllers/IndexController.php</file>
+            <file>file:/home/mwood/public_html/competence/library/Twitter/Bootstrap/Form/Horizontal.php</file>
+            <file>file:/home/mwood/public_html/competence/application/models/Base/User.php</file>
+            <file>file:/home/mwood/public_html/competence/var/dbpatch/patch-0001.sql</file>
+            <file>file:/home/mwood/public_html/competence/library/Twitter/Bootstrap/Form.php</file>
         </group>
     </open-files>
 </project-private>
