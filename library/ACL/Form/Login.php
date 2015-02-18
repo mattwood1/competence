@@ -30,7 +30,7 @@ class ACL_Form_Login extends Twitter_Bootstrap_Form_Horizontal
             'label' => "Forgotton Password",
             'value' => "Forgotton Password",
             'class' => "btn btn-default",
-            'url' => 'http://www.google.co.uk'
+            'url' => '/auth/forgotton'
         ))
         ;
 
