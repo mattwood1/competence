@@ -50,20 +50,12 @@ class AuthController extends Zend_Controller_Action
     public function forgottonAction()
     {
         if ($this->_request->getParam('email') && $this->_request->getParam('key')) {
-            
             $user = App_Model_UserTable::getInstance()->findOneByEmailaddress($this->_request->getParam('email'));
     
-            _d($user);
-            
             if ($user && $this->_request->getParam('key') == $this->_generateKey($user)) {
-            
-                _d('Keys match');
-                
                 $form = new ACL_Form_PasswordReset();
                 
                 if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
-                    // Update the password.
-                    
                     $user->password = md5($form->getValue('password1'));
                     $user->save();
                 }
@@ -74,18 +66,12 @@ class AuthController extends Zend_Controller_Action
 
             if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
                 $user = App_Model_UserTable::getInstance()->findOneByEmailaddress($form->getValue('emailaddress'));
-
                 $user->updated_at = date("Y-m-d h:i:s");
                 $user->save();
 
-                $key = $this->_generateKey($user);
-
-
-                _d($user, $key);
-
                 $mail = new Zend_Mail();
                 $mail->setBodyText('This is the text of the mail.');
-                $mail->setBodyHtml('<a href="http://competence.privatedns.org/auth/forgotton/email/'.$user->emailaddress.'/key/'.$key.'">Reset your password</a>');
+                $mail->setBodyHtml('<a href="http://competence.privatedns.org/auth/forgotton/email/' . $user->emailaddress . '/key/' . $this->_generateKey($user) . '">Reset your password</a>');
                 $mail->setFrom('somebody@competence.privatedns.org', 'Competence');
                 $mail->addTo($user->emailaddress, 'User');
                 $mail->setSubject('Password Reset');
