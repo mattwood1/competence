@@ -16,6 +16,13 @@ class CategoryController extends Zend_Controller_Action
 
         $this->view->categories = $categories;
     }
+    
+    public function showAction()
+    {
+        $category = App_Model_CategoryTable::getInstance()->find($this->_request->getParam('category'), Doctrine_Core::HYDRATE_RECORD);
+        
+        $this->view->category = $category;
+    }
 
     public function editAction()
     {

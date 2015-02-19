@@ -30,6 +30,9 @@ class UserController extends Zend_Controller_Action
 
         if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
             $user->fromArray($form->getValues());
+            if ($form->getValue('passwordReset')) {
+                $user->password = md5($form->getValue('passwordReset'));
+            }
             $user->save();
 
             $this->_helper->flash->addInfo($user->firstname . ' ' . $user->surname . ' has been saved');

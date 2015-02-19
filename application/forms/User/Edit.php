@@ -1,6 +1,8 @@
 <?php
 class App_Form_User_Edit extends Twitter_Bootstrap_Form_Horizontal
 {
+    protected $_disabled = true;
+    
     public function init()
     {
         $this->addElement("text", "firstname", array(
@@ -13,6 +15,16 @@ class App_Form_User_Edit extends Twitter_Bootstrap_Form_Horizontal
             "label" => "Surname",
             "required" => true,
             "multiOptions" => App_Model_CategoryTable::getInstance()->fetchPairs()
+        ))
+                
+        ->addElement("text", "emailaddress", array(
+            "label" => "Email",
+            "required" => true
+        ))
+                
+        ->addElement("password", "passwordReset", array(
+            "label" => "Password",
+            "required" => true,
         ))
 
         ->addElement("select", "role", array(
