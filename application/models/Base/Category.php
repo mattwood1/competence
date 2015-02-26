@@ -53,7 +53,7 @@ class App_Model_Base_Category extends Doctrine_Record
         
         $this->hasMany('App_Model_Question as questions', array(
             'local' => 'id',
-            'remote' => 'categoryid'
+            'foreign' => 'categoryid'
         ));
     }
 }
