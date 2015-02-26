@@ -27,15 +27,20 @@ class ACL_Form_Login extends Twitter_Bootstrap_Form_Horizontal
         ))
 
         ->addElement("link", "forgotton", array(
-            'label' => "Forgotton Password",
             'value' => "Forgotton Password",
             'class' => "btn btn-default",
             'url' => '/auth/forgotton'
         ))
+
+        ->addElement("link", "register", array(
+            'value' => "Register",
+            'class' => "btn btn-default",
+            'url' => '/auth/register'
+        ))
         ;
 
         $this->addDisplayGroup(
-            array('login', 'forgotton'),
+            array('login', 'forgotton', 'register'),
             'actions',
             array(
                 'disableLoadDefaultDecorators' => true,

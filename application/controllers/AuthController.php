@@ -82,6 +82,11 @@ class AuthController extends Zend_Controller_Action
         $this->view->form = $form;
     }
     
+    public function registerAction()
+    {
+        
+    }
+    
     protected function _generateKey(App_Model_User $user)
     {
         return md5( $user->password . $user->updated_at);
