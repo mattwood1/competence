@@ -38,6 +38,5 @@ Running DbPatch in /application/scripts/dbpatch
 ACL
 ===
 
-Uses Zend Framework ACL in one tidy package. Provides ACL and Authentication
-for the application. Two variables are automatically registered in the controller
+Uses Zend Framework ACL in one tidy package. Provides ACL and Authentication for the application. Two variables are automatically registered in the controller
 and in the view as $this->_request->_acl and $this->acl respectively.
